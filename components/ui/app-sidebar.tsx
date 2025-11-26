@@ -295,7 +295,7 @@ export function AppSidebar({
         ref={resizeRef}
         onMouseDown={() => setIsDragging(true)}
         className={cn(
-          "fixed top-14 bottom-0 left-0 bg-primary/10 cursor-col-resize w-3xl z-20",
+          "fixed top-14 bottom-0 left-0 bg-primary/10 cursor-col-resize z-20",
           collapsed ? "w-3" : "w-3",
           isDragging && "bg-transparent"
         )}

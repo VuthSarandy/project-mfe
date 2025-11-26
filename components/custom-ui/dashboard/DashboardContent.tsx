@@ -57,7 +57,7 @@ export function DashboardContent() {
       {/* Header */}
       <div>
         <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
-        <p className="text-muted-foreground">Welcome back! Here's what's happening today.</p>
+        <p className="text-muted-foreground">Welcome back! Here&#39;s what&#39;s happening today.</p>
       </div>
 
       {/* Summary Stats Grid */}
