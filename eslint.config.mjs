@@ -13,6 +13,13 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
   ]),
+  // Add specific rules for config files
+  {
+    files: ["next.config.*"],
+    rules: {
+      "@typescript-eslint/no-require-imports": "off"
+    }
+  }
 ]);
 
 export default eslintConfig;
