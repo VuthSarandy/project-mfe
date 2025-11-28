@@ -53,7 +53,7 @@ const ChartPlaceholder = () => (
 
 export function DashboardContent() {
   return (
-    <div className="space-y-6 text-foreground">
+    <div className="space-y-6 text-foreground -mt-14 mx-auto max-w-screen-3xl">
       {/* Header */}
       <div>
         <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
@@ -73,7 +73,6 @@ export function DashboardContent() {
         <SummaryCard title="Orders" value="+1,234" change="+12%" description="from last month" icon={ShoppingCart} />
         <SummaryCard title="Inventory" value="573" change="-4%" description="from last month" icon={Package} />
       </div>
-      
 
       {/* Charts and Additional Data */}
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">

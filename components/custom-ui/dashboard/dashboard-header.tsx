@@ -16,11 +16,17 @@ export function DashboardHeader() {
   return (
     <header className="fixed top-0 left-0 right-0 z-40 flex h-14 items-center gap-4 bg-primary px-6">
       <div className="flex items-center space-x-3">
-        <Avatar className="h-10 w-10 rounded-xl">
-          <AvatarImage src="/dashboard-logo.jpg" alt="Logo" className="rounded-xl object-cover" />
+        <Avatar className="h-12 w-12 rounded-xl">
+          <AvatarImage src="/images/acleda-logo.png" alt="Logo" className="rounded-xl object-cover" />
           <AvatarFallback className="bg-secondary text-secondary-foreground rounded-xl">MIS</AvatarFallback>
         </Avatar>
-        <h2 className="text-xl font-bold text-primary-foreground">Dashboard MIS</h2>
+        <h2
+  className="text-xl font-bold text-primary-foreground"
+  style={{ fontFamily: "Times New Roman, serif" }}
+>
+  ACLEDA MIS
+</h2>
+
       </div>
 
       <div className="flex items-center space-x-4 ml-auto">
@@ -37,7 +43,7 @@ export function DashboardHeader() {
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" className="relative h-9 w-9 rounded-full">
               <Avatar className="h-8 w-8">
-                <AvatarImage src="/user-profile-illustration.png" alt="User Profile" />
+                <AvatarImage src="/images/Sarandy-image.jpg" alt="User Profile" />
                 <AvatarFallback className="bg-secondary text-secondary-foreground">AD</AvatarFallback>
               </Avatar>
             </Button>

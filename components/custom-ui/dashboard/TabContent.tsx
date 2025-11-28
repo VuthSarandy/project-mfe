@@ -13,7 +13,7 @@ type TabContentProps = {
 // Generic placeholder component for other tabs
 function PlaceholderContent({ title, icon: Icon }: { title: string; icon: React.ElementType }) {
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 -mt-14">
       <div>
         <h1 className="text-3xl font-bold tracking-tight">{title}</h1>
         <p className="text-muted-foreground">Content for {title} will be displayed here</p>

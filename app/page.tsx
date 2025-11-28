@@ -16,33 +16,32 @@ export default function Home() {
   const [tabs, setTabs] = useState<Tab[]>([{ id: "dashboard", name: "Dashboard" }])
   const [activeTabId, setActiveTabId] = useState("dashboard")
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
-  const [sidebarWidth, setSidebarWidth] = useState(240);
-  const [isDragging, setIsDragging] = useState(false);
+  const [sidebarWidth, setSidebarWidth] = useState(240)
+  const [isDragging, setIsDragging] = useState(false)
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      if (!isDragging) return;
-      const newWidth = e.clientX;
+      if (!isDragging) return
+      const newWidth = e.clientX
       if (newWidth > 240 && newWidth < 500) {
-        setSidebarWidth(newWidth);
+        setSidebarWidth(newWidth)
       }
-    };
+    }
 
     const handleMouseUp = () => {
-      setIsDragging(false);
-    };
+      setIsDragging(false)
+    }
 
     if (isDragging) {
-      document.addEventListener("mousemove", handleMouseMove);
-      document.addEventListener("mouseup", handleMouseUp);
+      document.addEventListener("mousemove", handleMouseMove)
+      document.addEventListener("mouseup", handleMouseUp)
     }
 
     return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mouseup", handleMouseUp);
-    };
-  }, [isDragging]);
-
+      document.removeEventListener("mousemove", handleMouseMove)
+      document.removeEventListener("mouseup", handleMouseUp)
+    }
+  }, [isDragging])
 
   const handleTabChange = (id: string, name: string) => {
     if (!tabs.find((tab) => tab.id === id)) {
@@ -64,40 +63,54 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-primary">
-      {/* Fixed Header */}
-      <DashboardHeader />
+    /** ⭐ WRAP WHOLE APP TO DISABLE TRANSITIONS DURING DRAG */
+    <div className={isDragging ? "no-transition" : ""}>
 
-      {/* Sidebar - passes collapse state to AppSidebar */}
-      <AppSidebar
-        activeTabId={activeTabId}
-        onTabChange={handleTabChange}
-        collapsed={sidebarCollapsed}
-        onCollapseChange={setSidebarCollapsed}
-        sidebarWidth={sidebarWidth}
-        isDragging={isDragging}
-        setIsDragging={setIsDragging}
-        
-      />
+      <div className="min-h-screen bg-primary">
+        {/* Fixed Header */}
+        <DashboardHeader />
 
-      <main className={` pt-11 transition-all duration-300 ${sidebarCollapsed ? "ml-4" : "ml-[250px]"}`} style={{
-    marginLeft: sidebarCollapsed ? 4 : sidebarWidth,
-  }}>
-        <div className={ `${sidebarCollapsed ? " pl-[20px] pr-3" : "pl-[23px] pr-3"} "` } >
-          <div className="flex-1 h-[calc(100vh-78px)] flex flex-col border border-border rounded-lg shadow-sm bg-card overflow-hidden">
-            {/* Tabs Bar */}
-            <TabsBar tabs={tabs} activeTabId={activeTabId} onTabSelect={setActiveTabId} onTabClose={handleTabClose} />
+        {/* Sidebar */}
+        <AppSidebar
+          activeTabId={activeTabId}
+          onTabChange={handleTabChange}
+          collapsed={sidebarCollapsed}
+          onCollapseChange={setSidebarCollapsed}
+          sidebarWidth={sidebarWidth}
+          isDragging={isDragging}
+          setIsDragging={setIsDragging}
+        />
 
-            <Separator />
+        <main
+          className={`pt-11 transition-all duration-300 ${
+            sidebarCollapsed ? "pt-11 ml-4" : "pt-11 ml-[250px]"
+          }`}
+          style={{
+            marginLeft: sidebarCollapsed ? 4 : sidebarWidth,
+          }}
+        >
+          <div className={`${sidebarCollapsed ? "pl-[7px] pr-3" : "pl-[23px] pr-3"}`}>
+            <div className="flex-1 h-[calc(100vh-78px)] mt-6 flex flex-col border border-border rounded-lg shadow-sm bg-card overflow-hidden">
 
-            {/* Dynamic Tab Content */}
-            <div className="flex-1 overflow-auto p-6">
-              <TabContent activeTabId={activeTabId} />
+              {/* Tabs Bar */}
+              <TabsBar
+                tabs={tabs}
+                activeTabId={activeTabId}
+                onTabSelect={setActiveTabId}
+                onTabClose={handleTabClose}
+              />
+
+              <Separator />
+
+              {/* Tab Content */}
+              <div className="flex-1 pt-20 overflow-auto p-6">
+                <TabContent activeTabId={activeTabId} />
+              </div>
             </div>
           </div>
-        </div>
-      </main>
-    </div>
+        </main>
+      </div>
 
+    </div>
   )
 }

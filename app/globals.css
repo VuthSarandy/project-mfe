@@ -127,4 +127,8 @@
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
   }
+    .no-transition * {
+  transition: none !important;
+  animation: none !important;
+    }
 }
