@@ -3,8 +3,10 @@
 import type React from "react"
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { FileText, UserIcon, Plus } from "lucide-react"
+import { Plus } from "lucide-react"
 import { DashboardContent } from "@/components/custom-ui/dashboard/DashboardContent"
+import { WorkingPaper } from "@/components/custom-ui/credit/working-paper"
+import { UserCredit } from "@/components/custom-ui/credit/user-credit"
 
 type TabContentProps = {
   activeTabId: string
@@ -36,14 +38,13 @@ function PlaceholderContent({ title, icon: Icon }: { title: string; icon: React.
 }
 
 export function TabContent({ activeTabId }: TabContentProps) {
-  // Render different components based on active tab
   switch (activeTabId) {
     case "dashboard":
       return <DashboardContent />
     case "workingPaper":
-      return <PlaceholderContent title="Working Paper" icon={FileText} />
+      return <WorkingPaper />
     case "user":
-      return <PlaceholderContent title="User" icon={UserIcon} />
+      return <UserCredit />
     default:
       return <PlaceholderContent title={activeTabId} icon={Plus} />
   }

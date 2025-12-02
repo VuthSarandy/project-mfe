@@ -148,6 +148,5 @@ export function DashboardContent() {
         </Card>
       </div>
     </div>
-    
   )
 }
