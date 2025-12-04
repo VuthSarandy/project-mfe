@@ -254,6 +254,7 @@ export function AppSidebar({
 {collapsed ? (
   /* When collapsed — fully invisible hotspot */
   <div
+    onClick={() => onCollapseChange(false)}
     className="
       fixed top-14 bottom-0 left-0
       w-2 z-50

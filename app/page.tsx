@@ -82,15 +82,15 @@ export default function Home() {
         />
 
         <main
-          className={`pt-11 transition-all duration-300 ${
-            sidebarCollapsed ? "pt-11 ml-4" : "pt-11 ml-[250px]"
+          className={`pt-10 transition-all duration-300 ${
+            sidebarCollapsed ? "pt-10 ml-4" : "pt-10 ml-[250px]"
           }`}
           style={{
             marginLeft: sidebarCollapsed ? 4 : sidebarWidth,
           }}
         >
-          <div className={`${sidebarCollapsed ? "pl-[7px] pr-3" : "pl-[23px] pr-3"}`}>
-            <div className="flex-1 h-[calc(100vh-78px)] mt-6 flex flex-col border border-border rounded-lg shadow-sm bg-card overflow-hidden">
+          <div className={`${sidebarCollapsed ? "pl-[8px] pr-3" : "pl-[23px] pr-3"}`}>
+            <div className="flex-1 h-[calc(99vh-78px)] mt-7 flex flex-col border border-border rounded-lg shadow-sm bg-card overflow-hidden">
 
               {/* Tabs Bar */}
               <TabsBar
@@ -108,6 +108,14 @@ export default function Home() {
               </div>
             </div>
           </div>
+          <div
+  className="text-[10px] pt-[2px] text-white text-background text-center"
+  
+    >
+  Version : 1.0.0 | Released date: 2025-01-15 | @Copyright 2025 by ACLEDA Bank Plc. All Rights Reserved.
+</div>
+
+
         </main>
       </div>
 
